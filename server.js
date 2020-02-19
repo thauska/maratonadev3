@@ -1,17 +1,13 @@
-// logica de fazer um café
-const cor = "branco"
-const tamanho = 2.5
+//configurando o servidor
+const express = require("express");
+const server = express();
 
-function verificarCopoSujo(sujo) {
-    //logica para verificar se o copo está sujo
-    return `o copo: ${sujo}`
-}
+//configurar a apresentação da página
+server.get("/", function(req, res) {
+    return res.send("Ok, cheguei aqui com Nodemon!")
+})
 
-const copo = {
-    cor,
-    tamanho,
-    verificarCopoSujo
-}
-
-console.log(copo.verificarCopoSujo("não está sujo"))
-console.log(copo.verificarCopoSujo("está sujo"))
+//Ligar o servidor e permitir o acesso a porta 3000
+server.listen(3000, function() {
+    console.log("Iniciei um servidor!!")
+})

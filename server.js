@@ -28,8 +28,14 @@ nunjucks.configure("./", {
 
 //configurar a apresentação da página
 server.get("/", function (req, res) {
-    const donors = []
-    return res.render("index.html", { donors })
+    
+    db.query("SELECT * FROM donors", function(err, result) {
+        if(err) return res.send("Erro de BD")
+
+        const donors = result.rows;
+        return res.render("index.html", {donors})
+    })
+
 })
 
 server.post("/", function (req, res) {

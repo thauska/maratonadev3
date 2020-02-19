@@ -1,0 +1,10 @@
+Comandos utilizados no PostBird
+
+-- Inserir dados no banco de dados
+
+INSERT INTO "donors" ("name", "email", "blood")
+VALUES ('Robson Marques', 'robson@rocketseat.com.br', 'A+');
+
+-- Buscar os dados
+SELECT *
+FROM "donors";
